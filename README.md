@@ -1,69 +1,67 @@
 # Haste
 
 Haste is an open-source pastebin software written in node.js, which is easily
-installable in any network.  It can be backed by either redis or filesystem,
-and has a very easy adapter interface for other stores.  A publicly available
-version can be found at [hastebin.com](http://hastebin.com)
+installable in any network. It can be backed by either redis or filesystem,
+and has a very easy adapter interface for other stores. A publicly available
+version can be found at [hastebin.com](http://hastebin.com).
 
 Major design objectives:
 
-* Be really pretty
-* Be really simple
-* Be easy to set up and use
+* Be really pretty.
+* Be really simple.
+* Be easy to set up and use.
 
-Haste works really well with a little utility called
-[haste-client](https://github.com/seejohnrun/haste-client), allowing you
-to do things like:
 
-`cat something | haste`
+## Using from a terminal
 
-which will output a URL to share containing the contents of `cat something`'s
-STDOUT.  Check the README there for more details and usages.
+Haste can be used very well even from terminal. There are many Haste clients
+written in various languages:
 
-## Tested Browsers
+*  [seejohnrun/haste-client](https://github.com/seejohnrun/haste-client) (Ruby)
+*  [jirutka/haste-client](https://github.com/jirutka/haste-client) (Python)
+*  [ajryan/winhaste](https://github.com/ajryan/WinHaste) (C#)
+*  [flores/hastebin.sh](https://gist.github.com/flores/3670953) (Bash)
 
-* Firefox 8
-* Chrome 17
-* Safari 5.3
 
 ## Installation
 
-1.  Download the package, and expand it
-2.  Explore the settings inside of config.js, but the defaults should be good
-3.  `npm install`
-4.  `npm start`
+1. Download the package, and expand it.
+2. Explore the settings inside of `config.js`, but the defaults should be good.
+3. `npm install`
+4. `npm start`
+
 
 ## Settings
 
-* `host` - the host the server runs on (default localhost)
-* `port` - the port the server runs on (default 7777)
-* `keyLength` - the length of the keys to user (default 10)
-* `maxLength` - maximum length of a paste (default none)
-* `staticMaxAge` - max age for static assets (86400)
-* `recompressStatisAssets` - whether or not to compile static js assets (true)
-* `documents` - static documents to serve (ex: http://hastebin.com/about.com)
-  in addition to static assets.  These will never expire.
-* `storage` - storage options (see below)
-* `logging` - logging preferences
-* `keyGenerator` - key generator options (see below)
+*  **host** ... the host the server runs on (default: localhost).
+*  **port** ... the port the server runs on (default: 7777).
+*  **keyLength** ... the length of the keys to use (default: 10).
+*  **maxLength** ... maximum length of a paste in bytes (default: 400000).
+*  **staticMaxAge** ... maximum age for static assets in seconds (default: 86400).
+*  **recompressStatisAssets** ... whether to compile static JS assets (default: true).
+*  **documents** ... static documents to serve (ex: http://hastebin.com/about.com)
+                    in addition to static assets. These will never expire.
+*  **storage** ... storage options (see below).
+*  **logging** ... logging preferences.
+*  **keyGenerator** ... key generator options (see below).
 
-## Key Generation
+### Key Generation
 
-### Phonetic
+#### Phonetic
 
-Attempts to generate phonetic keys, similar to `pwgen`
+Attempts to generate phonetic keys, similar to `pwgen`.
 
-``` json
+```json
 {
   "type": "phonetic"
 }
 ```
 
-### Random
+#### Random
 
-Generates a random key
+Generates a random key.
 
-``` json
+```json
 {
   "type": "random",
   "keyspace": "abcdef"
@@ -73,31 +71,31 @@ Generates a random key
 The _optional_ keySpace argument is a string of acceptable characters
 for the key.
 
-## Storage
+### Storage
 
-### File
+#### File
 
 To use file storage (the default) change the storage section in `config.js` to
 something like:
 
-``` json
+```json
 {
-  "path": "./data",
-  "type": "file"
+  "type": "file",
+  "path": "./data"
 }
 ```
 
-Where `path` represents where you want the files stored
+Where `path` represents where you want the files stored.
 
-### Redis
+#### Redis
 
-To use redis storage you must install the `redis` package in npm
+To use redis storage you must install the `redis` package from npm:
 
-`npm install redis`
+    npm install redis
 
-Once you've done that, your config section should look like:
+Once you’ve done that, change `storage` to something like:
 
-``` json
+```json
 {
   "type": "redis",
   "host": "localhost",
@@ -112,15 +110,15 @@ or post.
 
 All of which are optional except `type` with very logical default values.
 
-### Postgres
+#### Postgres
 
-To use postgres storage you must install the `pg` package in npm
+To use postgres storage you must install the `pg` package from npm:
 
-`npm install pg`
+    npm install pg
 
-Once you've done that, your config section should look like:
+Once you’ve done that, change `storage` to something like:
 
-``` json
+```json
 {
   "type": "postgres",
   "connectionUrl": "postgres://user:password@host:5432/database"
@@ -131,7 +129,15 @@ You can also just set the environment variable for `DATABASE_URL` to your databa
 
 You will have to manually add a table to your postgres database:
 
-`create table entries (id serial primary key, key varchar(255) not null, value text not null, expiration int, unique(key));`
+```sql
+create table entries (
+  id serial primary key,
+  key varchar(255) not null,
+  value text not null,
+  expiration int,
+  unique(key)
+);
+```
 
 You can also set an `expire` option to the number of seconds to expire keys in.
 This is off by default, but will constantly kick back expirations on each view
@@ -139,13 +145,13 @@ or post.
 
 All of which are optional except `type` with very logical default values.
 
-### Memcached
+#### Memcached
 
-To use memcached storage you must install the `memcache` package via npm
+To use memcached storage you must install the `memcache` package from npm:
 
-`npm install memcache`
+    npm install memcache
 
-Once you've done that, your config section should look like:
+Once you’ve done that, change `storage` to something like:
 
 ``` json
 {
