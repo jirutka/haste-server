@@ -161,9 +161,12 @@ forward on GETs.
 
 All of which are optional except `type` with very logical default values.
 
-## Author
 
-John Crepezzi <john.crepezzi@gmail.com>
+## Authors
+
+* John Crepezzi <john.crepezzi@gmail.com> (the original author)
+* Jakub Jirutka <jakub@jirutka.cz> (author of this fork)
+
 
 ## License
 

@@ -55,7 +55,7 @@ Haste can easily be installed behind your network, and it's all open source!
 * [haste-client](https://github.com/seejohnrun/haste-client)
 * [haste-server](https://github.com/seejohnrun/haste-server)
 
-## Author
+## Authors
 
-Code by John Crepezzi <john.crepezzi@gmail.com>
-Key Design by Brian Dawson <bridawson@gmail.com>
+Code by John Crepezzi <john.crepezzi@gmail.com> and Jakub Jirutka <jakub@jirutka.cz>.
+Key Design by Brian Dawson <bridawson@gmail.com>.
