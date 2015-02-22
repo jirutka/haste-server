@@ -1,18 +1,35 @@
 {
   "name": "haste",
   "version": "0.1.0",
-  "private": true,
   "description": "Private Pastebin Server",
+  "author": {
+    "name": "Jakub Jirutka",
+    "email": "jakub@jirutka.cz"
+  },
+  "contributors": [{
+    "name": "John Crepezzi",
+    "email": "john.crepezzi@gmail.com",
+    "url": "http://seejohncode.com/"
+  }],
+  "bin": {
+    "haste-server": "./server.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha -r should spec/*"
+  },
+  "main": "haste",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jirutka/haste-server"
+  },
+  "bugs": {
+    "url": "https://github.com/jirutka/haste-server/issues"
+  },
   "keywords": [
     "paste",
     "pastebin"
   ],
-  "author": {
-    "name": "John Crepezzi",
-    "email": "john.crepezzi@gmail.com",
-    "url": "http://seejohncode.com/"
-  },
-  "main": "haste",
   "dependencies": {
     "winston": "0.9.x",
     "connect": "3.3.x",
@@ -25,7 +42,6 @@
     "mocha": "*",
     "should": "*"
   },
-  "bundledDependencies": [],
   "optionalDependencies": {
     "memcache": "0.3.x",
     "pg": "4.3.x",
@@ -36,9 +52,6 @@
     "node": ">=0.10.0",
     "npm": ">=1.1.49"
   },
-  "bin": {
-    "haste-server": "./server.js"
-  },
   "files": [
     "server.js",
     "lib",
@@ -47,8 +60,6 @@
   "directories": {
     "lib": "./lib"
   },
-  "scripts": {
-    "start": "node server.js",
-    "test": "mocha -r should spec/*"
-  }
+  "private": true,
+  "license": "MIT"
 }
