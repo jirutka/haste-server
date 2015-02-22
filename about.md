@@ -11,7 +11,7 @@ Haste is the prettiest, easiest to use pastebin ever made.
 Type what you want me to see, click "Save", and then copy the URL.  Send that
 URL to someone and they'll see what you see.
 
-To make a new entry, click "New" (or type 'control + n')
+To make a new entry, click "New" (or type 'Ctrl + n' / 'Cmd + n')
 
 ## From the Console
 
