@@ -24,6 +24,12 @@ textarea {
 	font-size: 13px;
 }
 
+pre {
+	-o-tab-size: 4;
+	-moz-tab-size: 4;
+	tab-size: 4;
+}
+
 /* the line numbers */
 
 #linenos {
