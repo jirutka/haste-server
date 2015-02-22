@@ -14,12 +14,12 @@
   },
   "main": "haste",
   "dependencies": {
-    "winston": "0.9.0",
-    "connect": "3.3.4",
-    "connect-route": "0.1.4",
-    "st": "0.5.3",
-    "uglify-js": "2.4.16",
-    "busboy": "0.2.9"
+    "winston": "0.9.x",
+    "connect": "3.3.x",
+    "connect-route": "0.1.x",
+    "st": "0.5.x",
+    "uglify-js": "2.4.x",
+    "busboy": "0.2.x"
   },
   "devDependencies": {
     "mocha": "*",
@@ -27,10 +27,10 @@
   },
   "bundledDependencies": [],
   "optionalDependencies": {
-    "memcache": "0.3.0",
-    "pg": "4.3.0",
-    "redis-url": "0.3.1",
-    "redis": "0.12.1"
+    "memcache": "0.3.x",
+    "pg": "4.3.x",
+    "redis-url": "0.3.x",
+    "redis": "0.12.x"
   },
   "engines": {
     "node": ">=0.10.0",
