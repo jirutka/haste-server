@@ -1,11 +1,11 @@
 ///// represents a single document
 
-var haste_document = function() {
+var HasteDocument = function() {
   this.locked = false;
 };
 
 // Escapes HTML tag characters
-haste_document.prototype.htmlEscape = function(s) {
+HasteDocument.prototype.htmlEscape = function(s) {
   return s
     .replace(/&/g, '&amp;')
     .replace(/>/g, '&gt;')
@@ -14,7 +14,7 @@ haste_document.prototype.htmlEscape = function(s) {
 };
 
 // Get this document from the server and lock it here
-haste_document.prototype.load = function(key, callback, lang) {
+HasteDocument.prototype.load = function(key, callback, lang) {
   var _this = this;
   $.ajax('/documents/' + key, {
     type: 'get',
@@ -52,7 +52,7 @@ haste_document.prototype.load = function(key, callback, lang) {
 };
 
 // Save this document to the server and lock it here
-haste_document.prototype.save = function(data, callback) {
+HasteDocument.prototype.save = function(data, callback) {
   if (this.locked) {
     return false;
   }
@@ -87,7 +87,7 @@ haste_document.prototype.save = function(data, callback) {
 
 ///// represents the paste application
 
-var haste = function(appName, options) {
+var Haste = function(appName, options) {
   this.appName = appName;
   this.$textarea = $('textarea');
   this.$box = $('#box');
@@ -103,13 +103,13 @@ var haste = function(appName, options) {
 };
 
 // Set the page title - include the appName
-haste.prototype.setTitle = function(ext) {
+Haste.prototype.setTitle = function(ext) {
   var title = ext ? this.appName + ' - ' + ext : this.appName;
   document.title = title;
 };
 
 // Show a message box
-haste.prototype.showMessage = function(msg, cls) {
+Haste.prototype.showMessage = function(msg, cls) {
   var msgBox = $('<li class="'+(cls || 'info')+'">'+msg+'</li>');
   $('#messages').prepend(msgBox);
   setTimeout(function() {
@@ -118,17 +118,17 @@ haste.prototype.showMessage = function(msg, cls) {
 };
 
 // Show the light key
-haste.prototype.lightKey = function() {
+Haste.prototype.lightKey = function() {
   this.configureKey(['new', 'save']);
 };
 
 // Show the full key
-haste.prototype.fullKey = function() {
+Haste.prototype.fullKey = function() {
   this.configureKey(['new', 'duplicate', 'twitter', 'raw']);
 };
 
 // Set the key up for certain things to be enabled
-haste.prototype.configureKey = function(enable) {
+Haste.prototype.configureKey = function(enable) {
   var $this, i = 0;
   $('#box2 .function').each(function() {
     $this = $(this);
@@ -144,9 +144,9 @@ haste.prototype.configureKey = function(enable) {
 
 // Remove the current document (if there is one)
 // and set up for a new one
-haste.prototype.newDocument = function(hideHistory) {
+Haste.prototype.newDocument = function(hideHistory) {
   this.$box.hide();
-  this.doc = new haste_document();
+  this.doc = new HasteDocument();
   if (!hideHistory) {
     window.history.pushState(null, this.appName, '/');
   }
@@ -162,7 +162,7 @@ haste.prototype.newDocument = function(hideHistory) {
 // Note: this list does not need to include anything that IS its extension,
 // due to the behavior of lookupTypeByExtension and lookupExtensionByType
 // Note: optimized for lookupTypeByExtension
-haste.extensionMap = {
+Haste.extensionMap = {
   rb: 'ruby', py: 'python', pl: 'perl', php: 'php', scala: 'scala', go: 'go',
   xml: 'xml', html: 'xml', htm: 'xml', css: 'css', js: 'javascript', vbs: 'vbscript',
   lua: 'lua', pas: 'delphi', java: 'java', cpp: 'cpp', cc: 'cpp', m: 'objectivec',
@@ -173,22 +173,22 @@ haste.extensionMap = {
 
 // Look up the extension preferred for a type
 // If not found, return the type itself - which we'll place as the extension
-haste.prototype.lookupExtensionByType = function(type) {
-  for (var key in haste.extensionMap) {
-    if (haste.extensionMap[key] === type) return key;
+Haste.prototype.lookupExtensionByType = function(type) {
+  for (var key in Haste.extensionMap) {
+    if (Haste.extensionMap[key] === type) return key;
   }
   return type;
 };
 
 // Look up the type for a given extension
 // If not found, return the extension - which we'll attempt to use as the type
-haste.prototype.lookupTypeByExtension = function(ext) {
-  return haste.extensionMap[ext] || ext;
+Haste.prototype.lookupTypeByExtension = function(ext) {
+  return Haste.extensionMap[ext] || ext;
 };
 
 // Add line numbers to the document
 // For the specified number of lines
-haste.prototype.addLineNumbers = function(lineCount) {
+Haste.prototype.addLineNumbers = function(lineCount) {
   var h = '';
   for (var i = 0; i < lineCount; i++) {
     h += (i + 1).toString() + '<br/>';
@@ -197,17 +197,17 @@ haste.prototype.addLineNumbers = function(lineCount) {
 };
 
 // Remove the line numbers
-haste.prototype.removeLineNumbers = function() {
+Haste.prototype.removeLineNumbers = function() {
   $('#linenos').html('&gt;');
 };
 
 // Load a document and show it
-haste.prototype.loadDocument = function(key) {
+Haste.prototype.loadDocument = function(key) {
   // Split the key up
   var parts = key.split('.', 2);
   // Ask for what we want
   var _this = this;
-  _this.doc = new haste_document();
+  _this.doc = new HasteDocument();
   _this.doc.load(parts[0], function(ret) {
     if (ret) {
       _this.$code.html(ret.value);
@@ -224,7 +224,7 @@ haste.prototype.loadDocument = function(key) {
 };
 
 // Duplicate the current document - only if locked
-haste.prototype.duplicateDocument = function() {
+Haste.prototype.duplicateDocument = function() {
   if (this.doc.locked) {
     var currentData = this.doc.data;
     this.newDocument();
@@ -233,7 +233,7 @@ haste.prototype.duplicateDocument = function() {
 };
 
 // Lock the current document
-haste.prototype.lockDocument = function() {
+Haste.prototype.lockDocument = function() {
   var _this = this;
   this.doc.save(this.$textarea.val(), function(err, ret) {
     if (err) {
@@ -255,7 +255,7 @@ haste.prototype.lockDocument = function() {
   });
 };
 
-haste.prototype.configureButtons = function() {
+Haste.prototype.configureButtons = function() {
   var _this = this;
   this.buttons = [
     {
@@ -321,7 +321,7 @@ haste.prototype.configureButtons = function() {
   }
 };
 
-haste.prototype.configureButton = function(options) {
+Haste.prototype.configureButton = function(options) {
   // Handle the click action
   options.$where.click(function(evt) {
     evt.preventDefault();
@@ -344,7 +344,7 @@ haste.prototype.configureButton = function(options) {
 };
 
 // Configure keyboard shortcuts for the textarea
-haste.prototype.configureShortcuts = function() {
+Haste.prototype.configureShortcuts = function() {
   var _this = this;
   $(document.body).keydown(function(evt) {
     var button;

@@ -3,7 +3,7 @@ var RedisDocumentStore = require('../lib/document_stores/redis');
 var winston = require('winston');
 winston.remove(winston.transports.Console);
 
-describe('redis_document_store', function() {
+describe('RedisDocumentStore', function() {
 
   /* reconnect to redis on each test */
   afterEach(function() {

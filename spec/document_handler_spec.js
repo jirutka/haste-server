@@ -1,7 +1,7 @@
 var DocumentHandler = require('../lib/document_handler');
 var Generator = require('../lib/key_generators/random');
 
-describe('document_handler', function() {
+describe('DocumentHandler', function() {
 
   describe('randomKey', function() {
 
