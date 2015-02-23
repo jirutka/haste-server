@@ -1,0 +1,10 @@
+$base-bg-color: #002b36;
+$logo-bg-color: darken($base-bg-color, 2);
+$actionbar-bg-color: lighten($base-bg-color, 2);
+$tooltip-bg-color: lighten($actionbar-bg-color, 2.6);
+
+$code-font-size: 13px;
+$code-font-family: monospace;
+$code-tabsize: 4;
+
+$linenum-color: hsl(0, 0, 50);

@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "mocha -r should spec/*"
+    "test": "mocha -r should spec/*",
+    "build": "node-sass sass/main.scss --output-style compact -o static/style/"
   },
   "main": "haste",
   "repository": {
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "mocha": "*",
+    "node-sass": "*",
     "should": "*"
   },
   "optionalDependencies": {
