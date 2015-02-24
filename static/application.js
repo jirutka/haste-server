@@ -98,7 +98,7 @@ var Haste = function(appName, options) {
   this.configureButtons();
   // If twitter is disabled, hide the button
   if (!options.twitter) {
-    $('#box2 .twitter').hide();
+    $('#twitter-button').hide();
   }
 };
 
@@ -129,11 +129,11 @@ Haste.prototype.fullKey = function() {
 
 // Set the key up for certain things to be enabled
 Haste.prototype.configureKey = function(enable) {
-  var $this, i = 0;
-  $('#box2 .function').each(function() {
-    $this = $(this);
-    for (i = 0; i < enable.length; i++) {
-      if ($this.hasClass(enable[i])) {
+  $('#actionbar .button').each(function() {
+    var $this = $(this);
+
+    for (var i = 0; i < enable.length; i++) {
+      if ($this.prop('id') === enable[i] + '-button') {
         $this.addClass('enabled');
         return true;
       }
@@ -259,7 +259,7 @@ Haste.prototype.configureButtons = function() {
   var _this = this;
   this.buttons = [
     {
-      $where: $('#box2 .save'),
+      $where: $('#save-button'),
       label: 'Save',
       shortcutDescription: 'Ctrl+S / Cmd+S',
       shortcut: function(evt) {
@@ -272,7 +272,7 @@ Haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('#box2 .new'),
+      $where: $('#new-button'),
       label: 'New',
       shortcut: function(evt) {
         return (evt.ctrlKey || evt.metaKey) && evt.keyCode === 78
@@ -283,7 +283,7 @@ Haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('#box2 .duplicate'),
+      $where: $('#duplicate-button'),
       label: 'Duplicate & Edit',
       shortcut: function(evt) {
         return _this.doc.locked && (evt.ctrlKey || evt.metaKey) && evt.keyCode === 69;
@@ -294,7 +294,7 @@ Haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('#box2 .raw'),
+      $where: $('#raw-button'),
       label: 'Just Text',
       shortcut: function(evt) {
         return (evt.ctrlKey || evt.metaKey) && evt.keyCode === 68;
@@ -305,7 +305,7 @@ Haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('#box2 .twitter'),
+      $where: $('#twitter-button'),
       label: 'Twitter',
       shortcut: function(evt) {
         return _this.options.twitter && _this.doc.locked && evt.shiftKey

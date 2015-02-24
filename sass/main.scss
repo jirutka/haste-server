@@ -1,6 +1,10 @@
 @charset 'UTF-8';
 
 @import 'variables';
+@import 'mixins';
+@import 'icons';
+
+@include font-face('hastebin-icons', '../font', '20150224');
 
 html {
   height: 100%;
@@ -96,26 +100,51 @@ body {
   }
 }
 
-#box2 {
+.actions {
   padding: 0px 5px;
   background: $actionbar-bg-color;
-  font-size: 0;
+}
 
-  .function {
-    position: relative;
-    width: 32px;
-    height: 37px;
-    display: inline-block;
-    background: url(../img/function-icons.png);
+.button {
+  display: inline-block;
+  padding: 0.5em 0.15em;
+  color: white;
+  opacity: .3;
+  font-size: 1.15em;
+
+  &:before {
+    @include icon-style('hastebin-icons');
   }
 
-  .link embed {
-    vertical-align: bottom;  // fix for zeroClipboard style
+  &.enabled {
+    opacity: .7;
   }
 
-  .function.enabled:hover {
+  &.enabled:hover {
     cursor: pointer;
+    opacity: 1;
   }
+}
+
+#save-button:before {
+  content: $icon-save;
+  font-size: 106%;  // compensate different icon size
+}
+
+#new-button:before {
+  content: $icon-new;
+}
+
+#duplicate-button:before {
+  content: $icon-edit;
+}
+
+#raw-button:before {
+  content: $icon-text;
+}
+
+#twitter-button:before {
+  content: $icon-twitter;
 }
 
 .tooltip, #messages li {
@@ -134,68 +163,6 @@ body {
 .tooltip-shortcut {
   color: #c4dce3;
   font-weight: normal;
-}
-
-#box2 .function {
-  &.save {
-    background-position: -5px top;
-  }
-
-  &.enabled.save {
-    background-position: -5px center;
-
-    &:hover {
-      background-position: -5px bottom;
-    }
-  }
-
-  &.new {
-    background-position: -42px top;
-  }
-
-  &.enabled.new {
-    background-position: -42px center;
-
-    &:hover {
-      background-position: -42px bottom;
-    }
-  }
-
-  &.duplicate {
-    background-position: -79px top;
-  }
-
-  &.enabled.duplicate {
-    background-position: -79px center;
-
-    &:hover {
-      background-position: -79px bottom;
-    }
-  }
-
-  &.raw {
-    background-position: -116px top;
-  }
-
-  &.enabled.raw {
-    background-position: -116px center;
-
-    &:hover {
-      background-position: -116px bottom;
-    }
-  }
-
-  &.twitter {
-    background-position: -153px top;
-  }
-
-  &.enabled.twitter {
-    background-position: -153px center;
-
-    &:hover {
-      background-position: -153px bottom;
-    }
-  }
 }
 
 #messages {

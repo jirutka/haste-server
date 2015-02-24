@@ -1,0 +1,40 @@
+{
+  "name": "hastebin-icons",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "f4445feb55521283572ee88bc304f928",
+      "css": "save",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7b6c617d6d1e3f22db493839f0483bf6",
+      "css": "edit",
+      "code": 59394,
+      "src": "elusive"
+    },
+    {
+      "uid": "9e0404ba55575a540164db9a5ad511df",
+      "css": "new",
+      "code": 59393,
+      "src": "elusive"
+    },
+    {
+      "uid": "55f7ab3f2bedec72e8400fa2798a7a1a",
+      "css": "text",
+      "code": 59395,
+      "src": "elusive"
+    },
+    {
+      "uid": "26969cfbd811730075e4c657cc9fda2a",
+      "css": "twitter",
+      "code": 59396,
+      "src": "elusive"
+    }
+  ]
+}
