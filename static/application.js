@@ -89,9 +89,9 @@ HasteDocument.prototype.save = function(data, callback) {
 
 var Haste = function(appName, options) {
   this.appName = appName;
-  this.$textarea = $('textarea');
-  this.$box = $('#box');
-  this.$code = $('#box code');
+  this.$textarea = $('#pastebox > textarea');
+  this.$box = $('#pastebox > pre');
+  this.$code = $('#pastebox > pre > code');
   this.$linenos = $('#linenos');
   this.options = options;
   this.configureShortcuts();
@@ -275,7 +275,7 @@ Haste.prototype.configureButtons = function() {
       $where: $('#box2 .new'),
       label: 'New',
       shortcut: function(evt) {
-        return (evt.ctrlKey || evt.metaKey) && evt.keyCode === 78  
+        return (evt.ctrlKey || evt.metaKey) && evt.keyCode === 78
       },
       shortcutDescription: 'Ctrl+N / Cmd+N',
       action: function() {
@@ -363,7 +363,7 @@ Haste.prototype.configureShortcuts = function() {
 ///// Tab behavior in the textarea - 2 spaces per tab
 $(function() {
 
-  $('textarea').keydown(function(evt) {
+  $('#pastebox textarea').keydown(function(evt) {
     if (evt.keyCode === 9) {
       evt.preventDefault();
       var myValue = '  ';
