@@ -63,22 +63,22 @@ body {
   text-align: right;
 }
 
-/* key */
+// Action bar (that thing in the top right corner)
 
-#key {
+#actionbar {
   position: fixed;
   top: 0;
   right: 0;
   z-index: +1000;  // watch out
 }
 
-#box1 {
+.logo {
   padding: 5px;
   text-align: center;
   background: $logo-bg-color;
 }
 
-#box1 a.logo {
+.logo > a {
   width: 126px;
   height: 42px;
   display: inline-block;
