@@ -118,7 +118,7 @@ body {
   }
 }
 
-#box3, #messages li {
+.tooltip, #messages li {
   padding: 10px 15px;
   background: $tooltip-bg-color;
   font-family: Helvetica, sans-serif;
@@ -126,12 +126,12 @@ body {
   line-height: 14px;
 }
 
-#box3 .label, #messages li {
+.tooltip-label, #messages li {
   color: #fff;
   font-weight: bold;
 }
 
-#box3 .shortcut {
+.tooltip-shortcut {
   color: #c4dce3;
   font-weight: normal;
 }

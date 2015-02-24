@@ -332,13 +332,13 @@ Haste.prototype.configureButton = function(options) {
   });
   // Show the label
   options.$where.mouseenter(function(evt) {
-    $('#box3 .label').text(options.label);
-    $('#box3 .shortcut').text(options.shortcutDescription || '');
-    $('#box3').show();
+    $('#actionbar .tooltip-label').text(options.label);
+    $('#actionbar .tooltip-shortcut').text(options.shortcutDescription || '');
+    $('#actionbar .tooltip').show();
   });
   // Hide the label
   options.$where.mouseleave(function(evt) {
-    $('#box3').hide();
+    $('#actionbar .tooltip').hide();
   });
 };
 
