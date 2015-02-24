@@ -114,21 +114,8 @@ body {
   }
 
   .function.enabled:hover {
-    cursor: hand;
     cursor: pointer;
   }
-}
-
-#pointer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  height: 5px;
-  width: 10px;
-  display: block;
-  background: url(../img/hover-dropdown-tip.png);
 }
 
 #box3, #messages li {

@@ -335,12 +335,10 @@ Haste.prototype.configureButton = function(options) {
     $('#box3 .label').text(options.label);
     $('#box3 .shortcut').text(options.shortcutDescription || '');
     $('#box3').show();
-    $(this).append($('#pointer').remove().show());
   });
   // Hide the label
   options.$where.mouseleave(function(evt) {
     $('#box3').hide();
-    $('#pointer').hide();
   });
 };
 
