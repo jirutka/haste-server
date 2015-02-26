@@ -20,14 +20,12 @@
 }
 
 @mixin font-face($font-family, $base-path, $version: '1', $weight: normal, $style: normal) {
-  $file-path: $base-path + '/' + $font-family;
-
   @font-face {
     font-family: $font-family;
-    src: url($file-path + '.eot?v='  + $version);
-    src: url($file-path + '.eot?v='  + $version) format('embedded-opentype'),
-         url($file-path + '.woff?v=' + $version) format('woff'),
-         url($file-path + '.ttf?v='  + $version) format('truetype');
+    src: url("#{$base-path}.eot?v=#{$version}");
+    src: url("#{$base-path}.eot?v=#{$version}")  format('embedded-opentype'),
+         url("#{$base-path}.woff?v=#{$version}") format('woff'),
+         url("#{$base-path}.ttf?v=#{$version}")  format('truetype');
     font-weight: $weight;
     font-style: $style;
   }

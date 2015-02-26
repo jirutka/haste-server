@@ -4,7 +4,9 @@
 @import 'mixins';
 @import 'icons';
 
-@include font-face('hastebin-icons', '../font', '20150224');
+@include font-face('hastebin-icons', '../font/hastebin/hastebin-icons', '20150224');
+@include font-face('Exo 2', '../font/exo2/Exo2-Italic', '20150226', 400, italic);
+@include font-face('Exo 2', '../font/exo2/Exo2-SemiBoldItalic', '20150226', 600, italic);
 
 html {
   height: 100%;
@@ -19,6 +21,8 @@ body {
 
 #pastebox {
   height: 100%;
+  font-family: $code-font-family;
+  font-size: $code-font-size;
 
   // editor
   textarea {
@@ -28,10 +32,8 @@ body {
     resize: none;
     border: 0;
     outline: none;
-    color: #fff;
+    color: white;
     background: transparent;
-    font-family: $code-font-family;
-    font-size: $code-font-size;
   }
 
   // viewer
@@ -42,7 +44,6 @@ body {
     width: 100%;
     border: 0;
     outline: none;
-    font-size: $code-font-size;
     -o-tab-size: $code-tabsize;
     -moz-tab-size: $code-tabsize;
     tab-size: $code-tabsize;
@@ -77,26 +78,27 @@ body {
 }
 
 .logo {
-  padding: 5px;
+  padding: 0.8em;
+  padding-bottom: 0.4em;
   text-align: center;
   background: $logo-bg-color;
 }
 
 .logo > a {
-  width: 126px;
-  height: 42px;
-  display: inline-block;
-  background: url(../img/logo.png);
+  font: italic normal 400 1.6em/1 "Exo 2";
+  text-decoration: none;
+  // this font looks ugly with antialiasing
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  opacity: .7;
 
-  &:visited {
-    width: 126px;
-    height: 42px;
-    display: inline-block;
-    background: url(../img/logo.png);
+  b {
+    font-weight: 600;
   }
 
   &:hover {
-    background-position: 0 bottom;
+    opacity: 1;
   }
 }
 
