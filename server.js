@@ -11,7 +11,8 @@ var uglify = require('uglify-js');
 var DocumentHandler = require('./lib/document_handler');
 
 // Load the configuration and set some defaults
-var config = JSON.parse(fs.readFileSync('./config.js', 'utf8'));
+var confPath = process.env.CONF || './config.js'
+var config = JSON.parse(fs.readFileSync(confPath, 'utf8'));
 config.port = process.env.PORT || config.port || 7777;
 config.host = process.env.HOST || config.host || 'localhost';
 

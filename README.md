@@ -33,8 +33,16 @@ written in various languages:
 
 ## Settings
 
-*  **host** ... the host the server runs on (default: localhost).
-*  **port** ... the port the server runs on (default: 7777).
+### Environment variables
+
+* **CONF** ... path of the configuration file (default: ./config.js).
+* **HOST** ... the host the server listen on (default: localhost).
+* **PORT** ... the port the server listen on (default: 7777).
+
+### Configuration file
+
+*  **host** ... the host the server listen on; may be overridden by env variable `HOST` (default: localhost).
+*  **port** ... the port the server listen on; may be overridden by env variable `PORT` (default: 7777).
 *  **keyLength** ... the length of the keys to use (default: 10).
 *  **maxLength** ... maximum length of a paste in bytes (default: 400000).
 *  **staticMaxAge** ... maximum age for static assets in seconds (default: 86400).
