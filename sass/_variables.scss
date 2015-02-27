@@ -1,10 +1,15 @@
+$text-color: white;
+$linenum-color: hsl(0, 0, 50);
+$icons-color: white;
+
 $base-bg-color: #002b36;
 $logo-bg-color: darken($base-bg-color, 2);
 $actionbar-bg-color: lighten($base-bg-color, 2);
 $tooltip-bg-color: lighten($actionbar-bg-color, 2.6);
+$message-bg-color: rgba(102, 8, 0, 0.8);
 
-$code-font-size: 13px;
-$code-font-family: monospace;
+$base-font-family: Helvetica, sans-serif;
+
+$code-font-family: Monaco, Consolas, "Liberation Mono", Courier, "Courier New", monospace;
+$code-font-size: 0.8em;
 $code-tabsize: 4;
-
-$linenum-color: hsl(0, 0, 50);

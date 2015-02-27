@@ -12,59 +12,54 @@ html {
   height: 100%;
 }
 
-body {
+body, code, pre, textarea, ul {
   margin: 0;
-  padding: 20px 50px;
+  padding: 0;
+}
+
+body {
+  padding: 1.5rem 3.2rem;
   height: 100%;
   background: $base-bg-color;
+  font-family: $base-font-family;
 }
 
-#pastebox {
+// Pastebox
+
+.pastebox {
+  width: 100%;
   height: 100%;
+  resize: none;
+
   font-family: $code-font-family;
   font-size: $code-font-size;
+  -moz-tab-size: $code-tabsize;
+  -o-tab-size: $code-tabsize;
+  tab-size: $code-tabsize;
 
-  // editor
-  textarea {
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    resize: none;
-    border: 0;
-    outline: none;
-    color: white;
-    background: transparent;
-  }
-
-  // viewer
-  pre {
-    padding: 0;
-    padding-right: 360px;
-    margin: 0;
-    width: 100%;
-    border: 0;
-    outline: none;
-    -o-tab-size: $code-tabsize;
-    -moz-tab-size: $code-tabsize;
-    tab-size: $code-tabsize;
-  }
-  code {
-    padding: 0;
-    background: transparent !important;  // don't hide hastebox
-  }
+  color: $text-color;
+  background: transparent;
+  border: 0;
+  outline: none;
 }
 
-/* the line numbers */
+.pastebox > code {
+  padding: 0;  // override highlight.js' padding
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// Line numbers
 
 #linenos {
   position: absolute;
-  top: 20px;
+  top: 1.5rem;
   left: 0;
-  width: 30px;  // 30 to get 20 away from box
-  color: $linenum-color;
+  width: 2.2rem;
   z-index: -1000;
-  font-size: $code-font-size;
+  color: $linenum-color;
   font-family: $code-font-family;
+  font-size: $code-font-size;
   text-align: right;
 }
 
@@ -74,7 +69,8 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: +1000;  // watch out
+  z-index: +900;  // watch out
+  color: $icons-color;
 }
 
 .logo {
@@ -90,8 +86,8 @@ body {
   // this font looks ugly with antialiasing
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: white;
-  opacity: .7;
+  color: $icons-color;
+  opacity: 0.7;
 
   b {
     font-weight: 600;
@@ -110,8 +106,7 @@ body {
 .button {
   display: inline-block;
   padding: 0.5em 0.15em;
-  color: white;
-  opacity: .3;
+  opacity: 0.3;
   font-size: 1.15em;
 
   &:before {
@@ -119,7 +114,7 @@ body {
   }
 
   &.enabled {
-    opacity: .7;
+    opacity: 0.7;
   }
 
   &.enabled:hover {
@@ -150,38 +145,36 @@ body {
 }
 
 .tooltip, #messages li {
-  padding: 10px 15px;
+  padding: 0.8em 1.2em;
   background: $tooltip-bg-color;
-  font-family: Helvetica, sans-serif;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 0.75em;
+  line-height: 0.75em * 1.6;
 }
 
 .tooltip-label, #messages li {
-  color: #fff;
+  color: $text-color;
   font-weight: bold;
 }
 
 .tooltip-shortcut {
-  color: #c4dce3;
+  opacity: 0.7;
   font-weight: normal;
 }
+
+// Error messages
 
 #messages {
   position: fixed;
   top: 0;
-  right: 138px;
-  margin: 0;
+  left: 50%;
+  margin: 0 0 0 -25%;
   padding: 0;
-  width: 400px;
+  width: 50%;
+  z-index: +1000;
 
   li {
     margin: 0 auto;
-    background: rgba(23, 62, 72, 0.8);
+    background: $message-bg-color;
     list-style: none;
-
-    &.error {
-      background: rgba(102, 8, 0, 0.8);
-    }
   }
 }
