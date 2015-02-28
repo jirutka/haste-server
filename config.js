@@ -7,7 +7,13 @@
 
   "maxLength": 400000,
 
-  "staticMaxAge": 86400,
+  "staticCache": {
+    "content": {
+      "max": 2097152,
+      "maxAge": 86400,
+      "cacheControl": "public, max-age=86400"
+    }
+  },
 
   "recompressStaticAssets": true,
 

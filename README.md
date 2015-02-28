@@ -45,7 +45,8 @@ written in various languages:
 *  **port** ... the port the server listen on; may be overridden by env variable `PORT` (default: 7777).
 *  **keyLength** ... the length of the keys to use (default: 10).
 *  **maxLength** ... maximum length of a paste in bytes (default: 400000).
-*  **staticMaxAge** ... maximum age for static assets in seconds (default: 86400).
+*  **staticCache** ... settings for static assets cache; see [st cache](https://github.com/isaacs/st#usage).
+                       To disable caching, set it to `false`.
 *  **recompressStatisAssets** ... whether to compile static JS assets (default: true).
 *  **documents** ... static documents to serve (ex: http://hastebin.com/about.com)
                     in addition to static assets. These will never expire.

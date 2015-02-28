@@ -103,7 +103,8 @@ var staticServe = st({
   path: './static',
   url: '/',
   index: 'index.html',
-  passthrough: true
+  passthrough: true,
+  cache: config.staticCache
 });
 
 var apiServe = connectRoute(function(router) {
@@ -142,7 +143,8 @@ var apiServe = connectRoute(function(router) {
 var staticRemains = st({
   path: './static',
   url: '/',
-  passthrough: false
+  passthrough: false,
+  cache: config.staticCache
 });
 
 
