@@ -26,33 +26,21 @@ written in various languages:
 ## Installation
 
 1. Download the package, and expand it.
-2. Explore the settings inside of `config.js`, but the defaults should be good.
+2. Explore the settings inside of `config.json5`, but the defaults should be good.
 3. `npm install`
 4. `npm start`
 
 
 ## Settings
 
+Settings are read from the configuration file specified by environment variable `CONF` (see below).
+This file is parsed as [JSON5](https://github.com/aseemk/json5), so comments are valid here and keys may not be quoted.
+
 ### Environment variables
 
-* **CONF** ... path of the configuration file (default: ./config.js).
+* **CONF** ... path of the configuration file (default: ./config.json5).
 * **HOST** ... the host the server listen on (default: localhost).
 * **PORT** ... the port the server listen on (default: 7777).
-
-### Configuration file
-
-*  **host** ... the host the server listen on; may be overridden by env variable `HOST` (default: localhost).
-*  **port** ... the port the server listen on; may be overridden by env variable `PORT` (default: 7777).
-*  **keyLength** ... the length of the keys to use (default: 10).
-*  **maxLength** ... maximum length of a paste in bytes (default: 400000).
-*  **staticCache** ... settings for static assets cache; see [st cache](https://github.com/isaacs/st#usage).
-                       To disable caching, set it to `false`.
-*  **recompressStatisAssets** ... whether to compile static JS assets (default: true).
-*  **documents** ... static documents to serve (ex: http://hastebin.com/about.com)
-                    in addition to static assets. These will never expire.
-*  **storage** ... storage options (see below).
-*  **logging** ... logging preferences.
-*  **keyGenerator** ... key generator options (see below).
 
 ### Key Generation
 
@@ -84,7 +72,7 @@ for the key.
 
 #### File
 
-To use file storage (the default) change the storage section in `config.js` to
+To use file storage (the default) change the storage section in `config.json5` to
 something like:
 
 ```json

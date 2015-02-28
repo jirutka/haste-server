@@ -7,12 +7,13 @@ var connect = require('connect');
 var connectRoute = require('connect-route');
 var st = require('st');
 var uglify = require('uglify-js');
+var JSON5 = require('json5');
 
 var DocumentHandler = require('./lib/document_handler');
 
 // Load the configuration and set some defaults
-var confPath = process.env.CONF || './config.js'
-var config = JSON.parse(fs.readFileSync(confPath, 'utf8'));
+var confPath = process.env.CONF || './config.json5'
+var config = JSON5.parse(fs.readFileSync(confPath, 'utf8'));
 config.port = process.env.PORT || config.port || 7777;
 config.host = process.env.HOST || config.host || 'localhost';
 

@@ -1,0 +1,47 @@
+{
+  // The host and port to listen on.
+  host: "0.0.0.0",
+  port: 7777,
+
+  // Length of the paste identifier in URL.
+  keyLength: 10,
+
+  keyGenerator: {
+    type: "phonetic"
+  },
+
+  storage: {
+    type: "file",
+    path: "./data"
+  },
+
+  // Static documents to serve (e.g. http://hastebin.com/about.md) in addition
+  // to static assets. These will never expire.
+  documents: {
+    about: "./about.md"
+  },
+
+  // Maximum length of a paste in bytes.
+  maxLength: 400000,
+
+  // Whether to compile static JS assets on start.
+  recompressStaticAssets: true,
+
+  // Settings for static assets cache; see https://github.com/isaacs/st#usage.
+  staticCache: {
+    content: {
+      max: 2097152,   // How much memory to use on caching contents (in bytes).
+      maxAge: 86400,  // How long to cache contents for (in seconds).
+      cacheControl: "public, max-age=86400"
+    }
+  },
+
+  // Logging preferences; see https://github.com/winstonjs/winston#working-with-transports.
+  logging: [
+    {
+      level: "verbose",
+      type: "Console",
+      colorize: true
+    }
+  ]
+}

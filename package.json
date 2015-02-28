@@ -33,12 +33,13 @@
     "pastebin"
   ],
   "dependencies": {
-    "winston": "0.9.x",
+    "busboy": "0.2.x",
     "connect": "3.3.x",
     "connect-route": "0.1.x",
+    "json5": "0.4.x",
     "st": "0.5.x",
     "uglify-js": "2.4.x",
-    "busboy": "0.2.x"
+    "winston": "0.9.x"
   },
   "devDependencies": {
     "mocha": "*",
