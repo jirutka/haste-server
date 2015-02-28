@@ -24,9 +24,6 @@
   // Maximum paste size in kilobytes.
   pasteMaxSize: 400,
 
-  // Whether to compile static JS assets on start.
-  recompressStaticAssets: true,
-
   // Settings for static assets cache; see https://github.com/isaacs/st#usage.
   staticCache: {
     content: {

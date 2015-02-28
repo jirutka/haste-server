@@ -28,7 +28,8 @@ written in various languages:
 1. Download the package, and expand it.
 2. Explore the settings inside of `config.json5`, but the defaults should be good.
 3. `npm install`
-4. `npm start`
+4. `npm run build`
+5. `npm start`
 
 
 ## Settings

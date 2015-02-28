@@ -17,7 +17,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha -r should spec/*",
-    "build": "node-sass --output-style compact -o static/style/ sass/main.scss",
+    "build": "node-sass --output-style compact -o static/style/ sass/main.scss && uglifyjs static/application.js -v -o static/application.min.js",
     "watch": "node-sass --output-style compact -o static/style/ -w -r sass/"
   },
   "main": "haste",
@@ -38,13 +38,13 @@
     "connect-route": "0.1.x",
     "json5": "0.4.x",
     "st": "0.5.x",
-    "uglify-js": "2.4.x",
     "winston": "0.9.x"
   },
   "devDependencies": {
     "mocha": "*",
     "node-sass": "2.0.x",
-    "should": "*"
+    "should": "*",
+    "uglify-js": "2.4.x"
   },
   "optionalDependencies": {
     "memcache": "0.3.x",
