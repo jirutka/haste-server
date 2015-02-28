@@ -94,7 +94,7 @@ var keyGenerator = new gen(pwOptions);
 // Configure the document handler
 var documentHandler = new DocumentHandler({
   store: preferredStore,
-  maxLength: config.maxLength,
+  maxLength: config.pasteMaxSize * 1024,
   keyLength: config.keyLength,
   keyGenerator: keyGenerator
 });

@@ -21,8 +21,8 @@
     about: "./about.md"
   },
 
-  // Maximum length of a paste in bytes.
-  maxLength: 400000,
+  // Maximum paste size in kilobytes.
+  pasteMaxSize: 400,
 
   // Whether to compile static JS assets on start.
   recompressStaticAssets: true,
