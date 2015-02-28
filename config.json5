@@ -4,7 +4,7 @@
   port: 7777,
 
   // Length of the paste identifier in URL.
-  keyLength: 10,
+  keyLength: 7,
 
   keyGenerator: {
     type: "phonetic"
@@ -22,7 +22,7 @@
   },
 
   // Maximum paste size in kilobytes.
-  pasteMaxSize: 400,
+  pasteMaxSize: 384,
 
   // Settings for static assets cache; see https://github.com/isaacs/st#usage.
   staticCache: {
