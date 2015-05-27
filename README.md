@@ -1,9 +1,12 @@
-# Haste
+# Haste paste!
 
-Haste is an open-source pastebin software written in node.js, which is easily
+_A damn simple and pretty pastebin server._
+
+Haste is an open-source pastebin software written in Node.js, which is easily
 installable in any network. It can be backed by either redis or filesystem,
 and has a very easy adapter interface for other stores. A publicly available
-version can be found at [hastebin.com](http://hastebin.com).
+version of the original Haste by John Crepezzi can be found at
+[hastebin.com](http://hastebin.com).
 
 Major design objectives:
 
