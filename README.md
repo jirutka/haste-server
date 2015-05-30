@@ -20,19 +20,31 @@ Major design objectives:
 Haste can be used very well even from terminal. There are many Haste clients
 written in various languages:
 
-*  [seejohnrun/haste-client](https://github.com/seejohnrun/haste-client) (Ruby)
-*  [jirutka/haste-client](https://github.com/jirutka/haste-client) (Python)
-*  [ajryan/winhaste](https://github.com/ajryan/WinHaste) (C#)
-*  [flores/hastebin.sh](https://gist.github.com/flores/3670953) (Bash)
+* [seejohnrun/haste-client](https://github.com/seejohnrun/haste-client) (Ruby)
+* [jirutka/haste-client](https://github.com/jirutka/haste-client) (Python)
+* [ajryan/winhaste](https://github.com/ajryan/WinHaste) (C#)
+* [flores/hastebin.sh](https://gist.github.com/flores/3670953) (Bash)
 
 
 ## Installation
 
-1. Download the package, and expand it.
-2. Explore the settings inside of `config.json5`, but the defaults should be good.
-3. `npm install`
-4. `npm run build`
-5. `npm start`
+### From npm
+
+```sh
+npm install -g haste-server
+```
+
+Then you can run it with `haste-server`.
+
+### From repository
+
+```sh
+git clone https://github.com/jirutka/haste-server.git
+cd haste-server
+npm install
+```
+
+Then you can run it with `npm start`.
 
 
 ## Settings
