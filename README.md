@@ -1,5 +1,7 @@
 # Haste paste!
 
+[![npm](https://img.shields.io/npm/v/haste-server.svg)](https://www.npmjs.com/package/haste-server)
+
 _A damn simple and pretty pastebin server._
 
 Haste is an open-source pastebin software written in Node.js, which is easily
