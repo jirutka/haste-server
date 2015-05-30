@@ -12,8 +12,11 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha -r should spec/*",
-    "build": "node-sass --output-style compact -o static/style/ sass/main.scss && uglifyjs static/application.js -v -o static/application.min.js",
-    "watch": "node-sass --output-style compact -o static/style/ -w -r sass/"
+    "prepublish": "npm run build",
+    "build": "npm run build-sass && npm run build-min-js",
+    "build-sass": "node-sass --output-style compact -o static/style/ sass/main.scss",
+    "build-min-js": "uglifyjs static/application.js -v -o static/application.min.js",
+    "watch-sass": "node-sass --output-style compact -o static/style/ -w -r sass/"
   },
   "main": "haste",
   "repository": {
