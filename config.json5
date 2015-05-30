@@ -12,11 +12,13 @@
 
   storage: {
     type: "file",
+    // Path relative to the current working directory.
     path: "./data"
   },
 
   // Static documents to serve (e.g. http://hastebin.com/about.md) in addition
-  // to static assets. These will never expire.
+  // to static assets. Relative file paths are resolved from the package
+  // directory. These documents will never expire.
   documents: {
     about: "./about.md"
   },

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var http = require('http');
+var path = require('path');
 var url = require('url');
 var fs = require('fs');
 
@@ -13,7 +14,7 @@ var JSON5 = require('json5');
 var DocumentHandler = require('./lib/document_handler');
 
 // Load the configuration and set some defaults
-var confPath = process.env.CONF || './config.json5'
+var confPath = process.env.CONF || path.resolve(__dirname, './config.json5');
 var config = JSON5.parse(fs.readFileSync(confPath, 'utf8'));
 config.port = process.env.PORT || config.port || 7777;
 config.host = process.env.HOST || config.host || 'localhost';
@@ -54,18 +55,18 @@ else {
 }
 
 // Send the static documents into the preferred store, skipping expirations
-var path, data;
 for (var name in config.documents) {
-  path = config.documents[name];
-  data = fs.readFileSync(path, 'utf8');
-  winston.info('loading static document', { name: name, path: path });
+  var filePath = config.documents[name];
+  var data = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
+
+  winston.info('loading static document', { name: name, path: filePath });
   if (data) {
     preferredStore.set(name, data, function(cb) {
       winston.debug('loaded static document', { success: cb });
     }, true);
   }
   else {
-    winston.warn('failed to load static document', { name: name, path: path });
+    winston.warn('failed to load static document', { name: name, path: filePath });
   }
 }
 
@@ -85,7 +86,7 @@ var documentHandler = new DocumentHandler({
 
 
 var staticServe = st({
-  path: './static',
+  path: path.resolve(__dirname, './static'),
   url: '/',
   index: 'index.html',
   passthrough: true,
@@ -126,7 +127,7 @@ var apiServe = connectRoute(function(router) {
 });
 
 var staticRemains = st({
-  path: './static',
+  path: path.resolve(__dirname, './static'),
   url: '/',
   passthrough: false,
   cache: config.staticCache
