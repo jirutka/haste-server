@@ -1,0 +1,9 @@
+/node_modules/
+/data/
+/icons/
+*.swp
+*.swo
+*.DS_Store
+.editorconfig
+.npmignore
+npm-debug.log

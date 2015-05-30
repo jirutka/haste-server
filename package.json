@@ -52,11 +52,6 @@
     "node": ">=0.10.0",
     "npm": ">=1.1.49"
   },
-  "files": [
-    "server.js",
-    "lib",
-    "static"
-  ],
   "directories": {
     "lib": "./lib"
   },
