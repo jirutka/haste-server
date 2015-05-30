@@ -1,6 +1,6 @@
 {
   "name": "haste-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A damn simple and pretty pastebin server.",
   "author": {
     "name": "Jakub Jirutka",
